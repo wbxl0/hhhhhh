@@ -16,7 +16,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          repository: akina005/hax-host2play
+          repository: wbxl0/hax
           token: ${{ secrets.MY_GITHUB_TOKEN }}
           path: .
 
@@ -54,7 +54,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
           # --- 2. 核心新增：确保脚本内部如有推送动作，也能准确推回私库 ---
           MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: 'akina005/hax-host2play'
+          GITHUB_REPOSITORY: 'wbxl0/hax'
           
         run: python hax_renw.py  
 
