@@ -20,13 +20,13 @@ jobs:
             echo "run=true" >> $GITHUB_OUTPUT
             exit 0
           fi
-          
-          # 以今天 2026-04-28 为基准日，固定每 3 天执行一次
+
+          # 以 2026-04-28 为基准日，固定每 3 天执行一次
           BASE_DATE="2026-04-28"
           DAYS=$(( $(date -u +%s) / 86400 ))
           BASE_DAYS=$(( $(date -u -d "$BASE_DATE" +%s) / 86400 ))
           REMAINDER=$(( (DAYS - BASE_DAYS) % 3 ))
-          
+
           if [ $REMAINDER -eq 0 ]; then
             echo "Today is the scheduled day. Starting workflow..."
             echo "run=true" >> $GITHUB_OUTPUT
@@ -40,7 +40,7 @@ jobs:
         if: steps.check.outputs.run == 'true'
         uses: actions/checkout@v4
         with:
-          repository: wbxl0/hax
+          repository: akina005/hax-host2play
           token: ${{ secrets.MY_GITHUB_TOKEN }}
           path: .
 
@@ -82,7 +82,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
           # --- 2. 核心新增：确保脚本内部如有推送动作，也能准确推回私库 ---
           MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: 'wbxl0/hax'
+          GITHUB_REPOSITORY: 'akina005/hax-host2play'
           
         run: python hax_renw.py  
 
