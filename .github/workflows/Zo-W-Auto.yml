@@ -1,4 +1,4 @@
-name: Zo-0-17-Auto-Renew-Workflow
+name: Zo-W-Auto-Renew-Workflow
 
 on:
   workflow_dispatch: 
@@ -31,12 +31,12 @@ jobs:
           TG_STRING_SESSION: ${{ secrets.TG_STRING_SESSION }}
           WENPASSWORD: ${{ secrets.WENPASSWORD }}
           TELEGRAM_ACCOUNT_ID: ${{ secrets.TELEGRAM_ACCOUNT_ID }}
-          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN_A }}
-          MY_CHAT_ID: ${{ secrets.MY_CHAT_ID_A }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN_W }}
+          MY_CHAT_ID: ${{ secrets.MY_CHAT_ID_W }}
         run: |
           curl -fsSL \
             -H "Authorization: Bearer ${MY_GITHUB_TOKEN}" \
             -H "Accept: application/vnd.github.raw" \
             -o Z0.py \
-            "https://api.github.com/repos/akina005/hax-host2play/contents/Z0.py?ref=main"
+            "https://api.github.com/repos/wbxl0/hax/contents/Z0.py?ref=main"
           python Z0.py
